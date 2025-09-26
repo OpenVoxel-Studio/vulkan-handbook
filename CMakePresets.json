@@ -1,0 +1,117 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "base",
+            "description": "Common configuration settings for all Windows builds using Ninja and vcpkg.",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+            "environment": {
+                "VCPKG_FEATURE_FLAGS": "manifests,versions,binarycaching,registries"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            },
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
+            }
+        },
+        {
+            "name": "windows-clang-x64-debug",
+            "inherits": "base",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "$env{ProgramFiles(x86)}/Microsoft Visual Studio/2022/BuildTools/VC/Tools/Llvm/x64/bin/clang.exe",
+                "CMAKE_CXX_COMPILER": "$env{ProgramFiles(x86)}/Microsoft Visual Studio/2022/BuildTools/VC/Tools/Llvm/x64/bin/clang++.exe",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "windows-clang-x64-asan-debug",
+            "inherits": "windows-clang-x64-debug",
+            "cacheVariables": {
+                "CMAKE_C_FLAGS": "-Db_sanitize=address",
+                "CMAKE_CXX_FLAGS": "-Db_sanitize=address"
+            }
+        },
+        {
+            "name": "windows-clang-x64-release",
+            "inherits": "windows-clang-x64-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "windows-clang-cl-x64-debug",
+            "inherits": "base",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "$env{ProgramFiles(x86)}/Microsoft Visual Studio/2022/BuildTools/VC/Tools/Llvm/x64/bin/clang-cl.exe",
+                "CMAKE_CXX_COMPILER": "$env{ProgramFiles(x86)}/Microsoft Visual Studio/2022/BuildTools/VC/Tools/Llvm/x64/bin/clang-cl.exe",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "windows-clang-cl-x64-asan-debug",
+            "inherits": "windows-clang-cl-x64-debug",
+            "cacheVariables": {
+                "CMAKE_C_FLAGS": "-Db_sanitize=address",
+                "CMAKE_CXX_FLAGS": "-Db_sanitize=address"
+            }
+        },
+        {
+            "name": "windows-clang-cl-x64-release",
+            "inherits": "windows-clang-cl-x64-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "windows-clang-x64-debug-build",
+            "configurePreset": "windows-clang-x64-debug",
+            "nativeToolOptions": [
+                "-v"
+            ]
+        },
+        {
+            "name": "windows-clang-x64-asan-debug-build",
+            "configurePreset": "windows-clang-x64-asan-debug",
+            "nativeToolOptions": [
+                "-v"
+            ]
+        },
+        {
+            "name": "windows-clang-x64-release",
+            "configurePreset": "windows-clang-x64-release",
+            "nativeToolOptions": [
+                "-v"
+            ]
+        },
+        {
+            "name": "windows-clang-cl-x64-debug-build",
+            "configurePreset": "windows-clang-cl-x64-debug",
+            "nativeToolOptions": [
+                "-v"
+            ]
+        },
+        {
+            "name": "windows-clang-cl-x64-asan-debug-build",
+            "configurePreset": "windows-clang-cl-x64-asan-debug",
+            "nativeToolOptions": [
+                "-v"
+            ]
+        },
+        {
+            "name": "windows-clang-cl-x64-release",
+            "configurePreset": "windows-clang-cl-x64-release",
+            "nativeToolOptions": [
+                "-v"
+            ]
+        }
+    ],
+    "testPresets": []
+}
