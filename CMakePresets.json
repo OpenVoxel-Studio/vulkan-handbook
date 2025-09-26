@@ -45,6 +45,20 @@
             }
         },
         {
+            "name": "windows-clang-x64-minsizerel",
+            "inherits": "windows-clang-x64-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        },
+        {
+            "name": "windows-clang-x64-relwithdebinfo",
+            "inherits": "windows-clang-x64-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
             "name": "windows-clang-cl-x64-debug",
             "inherits": "base",
             "cacheVariables": {
@@ -66,6 +80,20 @@
             "inherits": "windows-clang-cl-x64-debug",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "windows-clang-cl-x64-minsizerel",
+            "inherits": "windows-clang-cl-x64-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        },
+        {
+            "name": "windows-clang-cl-x64-relwithdebinfo",
+            "inherits": "windows-clang-cl-x64-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
         }
     ],
@@ -92,6 +120,20 @@
             ]
         },
         {
+            "name": "windows-clang-x64-minsizerel",
+            "configurePreset": "windows-clang-x64-minsizerel",
+            "nativeToolOptions": [
+                "-v"
+            ]
+        },
+        {
+            "name": "windows-clang-x64-relwithdebinfo",
+            "configurePreset": "windows-clang-x64-relwithdebinfo",
+            "nativeToolOptions": [
+                "-v"
+            ]
+        },
+        {
             "name": "windows-clang-cl-x64-debug-build",
             "configurePreset": "windows-clang-cl-x64-debug",
             "nativeToolOptions": [
@@ -108,6 +150,20 @@
         {
             "name": "windows-clang-cl-x64-release",
             "configurePreset": "windows-clang-cl-x64-release",
+            "nativeToolOptions": [
+                "-v"
+            ]
+        },
+        {
+            "name": "windows-clang-cl-x64-minsizerel",
+            "configurePreset": "windows-clang-cl-x64-minsizerel",
+            "nativeToolOptions": [
+                "-v"
+            ]
+        },
+        {
+            "name": "windows-clang-cl-x64-relwithdebinfo",
+            "configurePreset": "windows-clang-cl-x64-relwithdebinfo",
             "nativeToolOptions": [
                 "-v"
             ]
