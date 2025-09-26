@@ -17,81 +17,56 @@
                 "rhs": "Windows"
             },
             "cacheVariables": {
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
-            }
-        },
-        {
-            "name": "windows-clang-x64-debug",
-            "inherits": "base",
-            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
                 "CMAKE_C_COMPILER": "$env{ProgramFiles(x86)}/Microsoft Visual Studio/2022/BuildTools/VC/Tools/Llvm/x64/bin/clang.exe",
                 "CMAKE_CXX_COMPILER": "$env{ProgramFiles(x86)}/Microsoft Visual Studio/2022/BuildTools/VC/Tools/Llvm/x64/bin/clang++.exe",
-                "CMAKE_BUILD_TYPE": "Debug"
+                "ENABLE_CLANG_TIDY": true,
+                "ENABLE_TESTING": true,
+                "ENABLE_COVERAGE": true
+            },
+            "vendor": {
+                "microsoft.com/VisualStudioSettings/CMake/1.0": {
+                    "clangTidyChecks": "llvm-include-order, -modernize-use-override",
+                    "enableMicrosoftCodeAnalysis": true,
+                    "enableClangTidyCodeAnalysis": true
+                }
             }
         },
         {
-            "name": "windows-clang-x64-asan-debug",
-            "inherits": "windows-clang-x64-debug",
-            "cacheVariables": {
-                "CMAKE_C_FLAGS": "-Db_sanitize=address",
-                "CMAKE_CXX_FLAGS": "-Db_sanitize=address"
-            }
-        },
-        {
-            "name": "windows-clang-x64-release",
-            "inherits": "windows-clang-x64-debug",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
-        },
-        {
-            "name": "windows-clang-x64-minsizerel",
-            "inherits": "windows-clang-x64-debug",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "MinSizeRel"
-            }
-        },
-        {
-            "name": "windows-clang-x64-relwithdebinfo",
-            "inherits": "windows-clang-x64-debug",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
-            }
-        },
-        {
-            "name": "windows-clang-cl-x64-debug",
+            "name": "x64-debug",
             "inherits": "base",
             "cacheVariables": {
-                "CMAKE_C_COMPILER": "$env{ProgramFiles(x86)}/Microsoft Visual Studio/2022/BuildTools/VC/Tools/Llvm/x64/bin/clang-cl.exe",
-                "CMAKE_CXX_COMPILER": "$env{ProgramFiles(x86)}/Microsoft Visual Studio/2022/BuildTools/VC/Tools/Llvm/x64/bin/clang-cl.exe",
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
-            "name": "windows-clang-cl-x64-asan-debug",
-            "inherits": "windows-clang-cl-x64-debug",
+            "name": "x64-asan-debug",
+            "inherits": "x64-debug",
             "cacheVariables": {
-                "CMAKE_C_FLAGS": "-Db_sanitize=address",
-                "CMAKE_CXX_FLAGS": "-Db_sanitize=address"
+                "ENABLE_ASAN": true
             }
         },
         {
-            "name": "windows-clang-cl-x64-release",
-            "inherits": "windows-clang-cl-x64-debug",
+            "name": "x64-release",
+            "inherits": "x64-debug",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
+                "CMAKE_BUILD_TYPE": "Release",
+                "ENABLE_ASAN": false,
+                "ENABLE_CLANG_TIDY": false,
+                "ENABLE_TESTING": false,
+                "ENABLE_COVERAGE": false
             }
         },
         {
-            "name": "windows-clang-cl-x64-minsizerel",
-            "inherits": "windows-clang-cl-x64-debug",
+            "name": "x64-minsizerel",
+            "inherits": "x64-release",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "MinSizeRel"
             }
         },
         {
-            "name": "windows-clang-cl-x64-relwithdebinfo",
-            "inherits": "windows-clang-cl-x64-debug",
+            "name": "x64-relwithdebinfo",
+            "inherits": "x64-debug",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
@@ -99,75 +74,20 @@
     ],
     "buildPresets": [
         {
-            "name": "windows-clang-x64-debug-build",
-            "configurePreset": "windows-clang-x64-debug",
+            "name": "x64-debug-verbose",
+            "displayName": "Verbose",
+            "configurePreset": "x64-debug",
             "nativeToolOptions": [
                 "-v"
             ]
         },
         {
-            "name": "windows-clang-x64-asan-debug-build",
-            "configurePreset": "windows-clang-x64-asan-debug",
-            "nativeToolOptions": [
-                "-v"
-            ]
-        },
-        {
-            "name": "windows-clang-x64-release",
-            "configurePreset": "windows-clang-x64-release",
-            "nativeToolOptions": [
-                "-v"
-            ]
-        },
-        {
-            "name": "windows-clang-x64-minsizerel",
-            "configurePreset": "windows-clang-x64-minsizerel",
-            "nativeToolOptions": [
-                "-v"
-            ]
-        },
-        {
-            "name": "windows-clang-x64-relwithdebinfo",
-            "configurePreset": "windows-clang-x64-relwithdebinfo",
-            "nativeToolOptions": [
-                "-v"
-            ]
-        },
-        {
-            "name": "windows-clang-cl-x64-debug-build",
-            "configurePreset": "windows-clang-cl-x64-debug",
-            "nativeToolOptions": [
-                "-v"
-            ]
-        },
-        {
-            "name": "windows-clang-cl-x64-asan-debug-build",
-            "configurePreset": "windows-clang-cl-x64-asan-debug",
-            "nativeToolOptions": [
-                "-v"
-            ]
-        },
-        {
-            "name": "windows-clang-cl-x64-release",
-            "configurePreset": "windows-clang-cl-x64-release",
-            "nativeToolOptions": [
-                "-v"
-            ]
-        },
-        {
-            "name": "windows-clang-cl-x64-minsizerel",
-            "configurePreset": "windows-clang-cl-x64-minsizerel",
-            "nativeToolOptions": [
-                "-v"
-            ]
-        },
-        {
-            "name": "windows-clang-cl-x64-relwithdebinfo",
-            "configurePreset": "windows-clang-cl-x64-relwithdebinfo",
+            "name": "x64-asan-debug-verbose",
+            "displayName": "Verbose",
+            "configurePreset": "x64-asan-debug",
             "nativeToolOptions": [
                 "-v"
             ]
         }
-    ],
-    "testPresets": []
+    ]
 }
