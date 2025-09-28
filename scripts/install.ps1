@@ -37,7 +37,7 @@ foreach ($Dep in $DEPS) {
     if ($Dep -like "*BuildTools") {
         Install-MicrosoftBuildTools
     }
-    elseif ($dep -like "*Cppcheck*") {
+    elseif ($Dep -like "*Cppcheck*") {
         winget install $Dep
         Set-PathVar -Path "$env:ProgramFiles\Cppcheck"
     }
