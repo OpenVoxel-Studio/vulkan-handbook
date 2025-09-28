@@ -1,3 +1,8 @@
+# Copyright (c) 2025 Xavier Beheydt <xavier.beheydt@gmail.com>
+ 
+# Configuration of clang-tidy
+# =============================
+
 ---
 Check : "*"
 FormatStyle: none
