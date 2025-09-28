@@ -8,6 +8,7 @@
         "llvm-vs-code-extensions.lldb-dap",
         "ms-vscode.powershell",
         "slevesque.shader",
-        "stevensona.shader-toy"
+        "stevensona.shader-toy",
+        "nathanj.cppcheck-plugin"
     ]
 }
