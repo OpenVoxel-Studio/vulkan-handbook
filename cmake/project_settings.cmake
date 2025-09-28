@@ -55,6 +55,10 @@ if(ENABLE_TESTING)
 endif()
 
 # Colorize Output
-if(FORCE_COLORED_OUTPUT AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    add_compile_options(-fcolor-diagnostics)
-endif(FORCE_COLORED_OUTPUT)
+if(FORCE_COLORED_OUTPUT)
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        add_compile_options(-fcolor-diagnostics)
+    elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+        add_compile_options(-fdiagnostics-color=always)
+    endif()
+endif()
