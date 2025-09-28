@@ -5,7 +5,7 @@ $DEPS = @(
     "Microsoft.VisualStudioCode",
     "Microsoft.VisualStudio.2022.BuildTools",
     "KhronosGroup.VulkanSDK",
-    "BaldurKarlsson.RenderDoc"
+    "BaldurKarlsson.RenderDoc",
     # TODO: Add RenderDoc
 )
 
