@@ -1,6 +1,6 @@
 # Function to compile GLSL shaders to SPIR-V
 function(compile_shader TARGET_NAME SHADER_SOURCE SHADER_OUTPUT)
-    if(NOT ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
+    if(NOT Vulkan_GLSLANG_VALIDATOR_EXECUTABLE)
         message(SEND_ERROR "GLSLANG Validator is not found")
     endif()
     add_custom_command(
