@@ -1,0 +1,13 @@
+{
+    "cmake.configureOnOpen": true,
+    "cmake.buildDirectory": "${workspaceFolder}/out/build",
+    "cmake.generator": "Ninja",
+    "[cpp]": {
+        "editor.rulers": [
+            {
+                "column": 120,
+                "color": "#181818"
+            }
+        ]
+    }
+}

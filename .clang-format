@@ -1,0 +1,29 @@
+# Copyright (c) 2025 Xavier Beheydt <xavier.beheydt@gmail.com>
+ 
+# Configuration of clang-format
+# =============================
+
+---
+Language: Cpp
+
+ColumnLimit: 120
+BasedOnStyle: Microsoft
+IndentWidth: 4
+SortIncludes: true
+EmptyLineAfterIncludes: true
+
+# This causes parameters on continuations to align to the opening brace.
+#
+#   like_this_long_name(parameter_one,
+#                       parameter_two,
+#                       parameter_three);
+#
+# Instead of:
+#
+#   like_this_long_name(parameter_one, parameter_two, parameter_three, parameter_four,
+#                       parameter_five, parameter_six);
+#
+AlignAfterOpenBracket: 'Align'
+BinPackArguments: false
+BinPackParameters: false
+---
