@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Xavier Beheydt
+# Copyright (c) 2025 Xavier Beheydt <xavier.beheydt@gmail.com>
 
 # Documentations :
 #   - https://docs.vulkan.org/guide/latest/ide.html
