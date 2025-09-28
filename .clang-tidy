@@ -4,7 +4,7 @@
 # =============================
 
 ---
-Check : "*"
+Checks : "*"
 FormatStyle: none
 HeaderFileExtensions:         ['', 'h','hh','hpp','hxx']
 HeaderFilterRegex: ''
