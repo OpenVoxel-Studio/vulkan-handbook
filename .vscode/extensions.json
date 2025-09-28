@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.cpptools-themes",
+        "ms-azuretools.vscode-docker",
+        "llvm-vs-code-extensions.lldb-dap",
+        "ms-vscode.powershell",
+        "slevesque.shader",
+        "stevensona.shader-toy"
+    ]
+}
