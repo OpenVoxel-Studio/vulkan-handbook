@@ -9,6 +9,7 @@
         "ms-vscode.powershell",
         "slevesque.shader",
         "stevensona.shader-toy",
-        "nathanj.cppcheck-plugin"
+        "nathanj.cppcheck-plugin",
+        "shader-slang.slang-language-extension"
     ]
 }

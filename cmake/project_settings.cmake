@@ -1,4 +1,6 @@
-# Copyright (c) 2025 Xavier Beheydt <xavier.beheydt@gmail.com>
+# Copyright (c) 2025 OpenVoxel-Studio <xavier.beheydt@gmail.com>
+# SPDX-License-Identifier: MIT
+
 
 # Project settings for CMake
 message(STATUS "Load Project settings")
@@ -17,6 +19,11 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
         add_compile_options(-fms-compatibility)
     endif()
 endif()
+
+# Slang shader compiler settings
+set(VULKAN_SHADER_COMPILER "slang" CACHE STRING "Shader compiler to use: glslang or slang")
+# XXX: Not used for the moment
+# option(ENABLE_SLANG "Enable Slang shader compiler support" OFF)
 
 # Options
 option(ENABLE_ASAN "Enable address sanitizer" FALSE)
