@@ -1,4 +1,6 @@
-# Copyright (c) 2025 Xavier Beheydt <xavier.beheydt@gmail.com>
+# Copyright (c) 2025 OpenVoxel-Studio <xavier.beheydt@gmail.com>
+# SPDX-License-Identifier: MIT
+
 
 # Adds custom commands to compile a number of shader source files to
 # SPIR-V using glslc and bundles them into a custom target.

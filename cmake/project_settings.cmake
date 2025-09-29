@@ -1,10 +1,12 @@
-# Copyright (c) 2025 Xavier Beheydt <xavier.beheydt@gmail.com>
+# Copyright (c) 2025 OpenVoxel-Studio <xavier.beheydt@gmail.com>
+# SPDX-License-Identifier: MIT
+
 
 # Project settings for CMake
 message(STATUS "Load Project settings")
 
 # C++ Settings
-set(CMAKE_CXX_STANDARD 17 CACHE STRING "C++ standard to use")
+set(CMAKE_CXX_STANDARD 20 CACHE STRING "C++ standard to use")
 set(CMAKE_CXX_STANDARD_REQUIRED ON CACHE BOOL "Require C++ standard")
 set(CMAKE_CXX_EXTENSIONS OFF CACHE BOOL "Disable compiler-specific extensions")
 
@@ -17,6 +19,11 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
         add_compile_options(-fms-compatibility)
     endif()
 endif()
+
+# Slang shader compiler settings
+set(VULKAN_SHADER_COMPILER "slang" CACHE STRING "Shader compiler to use: glslang or slang")
+# XXX: Not used for the moment
+# option(ENABLE_SLANG "Enable Slang shader compiler support" OFF)
 
 # Options
 option(ENABLE_ASAN "Enable address sanitizer" FALSE)
