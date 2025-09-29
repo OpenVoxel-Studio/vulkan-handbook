@@ -1,6 +1,4 @@
 # TODO List
 
 - [ ] Test framework
-- [ ] clang-tidy settings
-- [ ] cppcheck settings
-- [ ] IntelliSense
+- [ ] Write Documentation and blog post about dev env stack and how to use it
