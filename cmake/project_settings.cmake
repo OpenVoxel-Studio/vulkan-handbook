@@ -4,7 +4,7 @@
 message(STATUS "Load Project settings")
 
 # C++ Settings
-set(CMAKE_CXX_STANDARD 17 CACHE STRING "C++ standard to use")
+set(CMAKE_CXX_STANDARD 20 CACHE STRING "C++ standard to use")
 set(CMAKE_CXX_STANDARD_REQUIRED ON CACHE BOOL "Require C++ standard")
 set(CMAKE_CXX_EXTENSIONS OFF CACHE BOOL "Disable compiler-specific extensions")
 
