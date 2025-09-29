@@ -34,7 +34,7 @@
                 {
                     "name": "VK_INSTANCE_LAYERS",
                     "value": "VK_LAYER_KHRONOS_validation"
-                },
+                }
             ],
             "console": "integratedTerminal",
             "preLaunchTask": "CMake: clean rebuild"
