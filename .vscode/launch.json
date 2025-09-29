@@ -31,17 +31,22 @@
                     "name": "PATH",
                     "value": "${env:PATH}:${command:cmake.getLaunchTargetDirectory}"
                 },
+                {
+                    "name": "VK_INSTANCE_LAYERS",
+                    "value": "VK_LAYER_KHRONOS_validation"
+                }
             ],
             "console": "integratedTerminal",
             "preLaunchTask": "CMake: clean rebuild"
         },
         {
+            // FIXME: not run
             "name": "(ctest) Launch",
             "type": "cppvsdbg",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "presentation": {
-                "hidden": true
+                "hidden": true,
             },
             // Resolved by CMake Tools:
             "program": "${cmake.testProgram}",
@@ -57,6 +62,37 @@
                     "name": "PATH",
                     "value": "${env:PATH}:${command:cmake.getLaunchTargetDirectory}"
                 },
+                {
+                    "name": "VK_INSTANCE_LAYERS",
+                    "value": "VK_LAYER_KHRONOS_validation"
+                }
+            ],
+        },
+        {
+            "name": "(shaders) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${env:ProgramFiles}/RenderDoc/qrenderdoc.exe",
+            "args": [
+                "--capture-file",
+                "${workspaceFolder}/capture.rdc",
+                "${command:cmake.launchTargetPath}"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "VK_LAYER_PATH",
+                    "value": "${env:VULKAN_SDK}/Bin"
+                },
+                {
+                    "name": "PATH",
+                    "value": "${env:PATH}:${command:cmake.getLaunchTargetDirectory}"
+                },
+                {
+                    "name": "VK_INSTANCE_LAYERS",
+                    "value": "VK_LAYER_KHRONOS_validation"
+                }
             ],
         }
     ],
