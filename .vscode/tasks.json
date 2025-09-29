@@ -3,9 +3,9 @@
     "tasks": [
 		{
 			"type": "cmake",
-			"label": "CMake: configure ASAN Debug",
+			"label": "CMake: configure",
 			"command": "configure",
-			"preset": "x64-asan-debug",
+			// "preset": "${command:cmake.activeConfigurePresetName}",
 			"problemMatcher": [],
 			"detail": "CMake template configure task"
 		},
@@ -13,13 +13,26 @@
 			"type": "cmake",
 			"label": "CMake: clean",
 			"command": "clean",
-			"preset": "x64-asan-debug-verbose",
+			// "preset": "${command:cmake.activeConfigurePresetName}",
 			"problemMatcher": [],
 			"detail": "CMake template clean task"
 		},
 		{
 			"type": "cmake",
+			"label": "CMake: build",
+			// "preset": "${command:cmake.activeConfigurePresetName}",
+			"command": "build",
+			"targets": [
+				"all"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "CMake template build task"
+		},
+		{
+			"type": "cmake",
 			"label": "CMake: clean rebuild",
+			// "preset": "${command:cmake.activeConfigurePresetName}",
 			"command": "cleanRebuild",
 			"targets": [
 				"all"

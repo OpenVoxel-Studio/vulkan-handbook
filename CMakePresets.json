@@ -85,11 +85,34 @@
         },
         {
             "name": "x64-asan-debug-verbose",
-            "displayName": "Verbose",
+            "displayName": "ASAN Debug Verbose",
             "configurePreset": "x64-asan-debug",
             "nativeToolOptions": [
                 "-v"
             ]
+        },
+        {
+            "name": "x64-relwithdebinfo-verbose",
+            "displayName": "RelWithDebInfo Verbose",
+            "configurePreset": "x64-relwithdebinfo",
+            "nativeToolOptions": [
+                "-v"
+            ]
+        },
+        {
+            "name": "x64-release",
+            "displayName": "Release",
+            "configurePreset": "x64-release"
+        },
+        {
+            "name": "x64-minsizerel",
+            "displayName": "MinSizeRel",
+            "configurePreset": "x64-minsizerel"
+        },
+        {
+            "name": "x64-relwithdebinfo",
+            "displayName": "RelWithDebInfo",
+            "configurePreset": "x64-relwithdebinfo"
         }
     ]
 }
