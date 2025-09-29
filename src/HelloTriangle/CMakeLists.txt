@@ -1,3 +1,5 @@
+# Copyright (c) 2025 Xavier Beheydt <xavier.beheydt@gmail.com>
+
 # Create your executable
 add_executable(hellotriangle hellotriangle.cpp)
 
