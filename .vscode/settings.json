@@ -9,5 +9,6 @@
                 "color": "#181818"
             }
         ]
-    }
+    },
+    "slang.slangdLocation": "${env:VULKAN_SDK}/Bin/slangd.exe"
 }
