@@ -3,13 +3,25 @@ function(compile_shader TARGET_NAME SHADER_SOURCE SHADER_OUTPUT)
     if(NOT Vulkan_GLSLANG_VALIDATOR_EXECUTABLE)
         message(SEND_ERROR "GLSLANG Validator is not found")
     endif()
-    add_custom_command(
-        OUTPUT ${SHADER_OUTPUT}
-        COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_CURRENT_BINARY_DIR}/shaders"
-        COMMAND ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE} -V "${SHADER_SOURCE}" -o "${SHADER_OUTPUT}"
-        DEPENDS ${SHADER_SOURCE}
-        COMMENT "Compiling ${SHADER_SOURCE} to ${SHADER_OUTPUT}"
-    )
+    
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        add_custom_command(
+            OUTPUT ${SHADER_OUTPUT}
+            COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_CURRENT_BINARY_DIR}/shaders"
+            COMMAND ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE} -g -V "${SHADER_SOURCE}" -o "${SHADER_OUTPUT}"
+            DEPENDS ${SHADER_SOURCE}
+            COMMENT "Compiling ${SHADER_SOURCE} to ${SHADER_OUTPUT}"
+        )
+    else()
+        add_custom_command(
+            OUTPUT ${SHADER_OUTPUT}
+            COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_CURRENT_BINARY_DIR}/shaders"
+            COMMAND ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE} -V "${SHADER_SOURCE}" -o "${SHADER_OUTPUT}"
+            DEPENDS ${SHADER_SOURCE}
+            COMMENT "Compiling ${SHADER_SOURCE} to ${SHADER_OUTPUT}"
+        )
+    endif()
+    
     add_custom_target(${TARGET_NAME} DEPENDS ${SHADER_OUTPUT})
 endfunction()
 
